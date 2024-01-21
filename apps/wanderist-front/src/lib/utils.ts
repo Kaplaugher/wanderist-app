@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { cubicOut } from 'svelte/easing';
 import type { TransitionConfig } from 'svelte/transition';
+const { randomBytes } = await import('node:crypto');
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -16,6 +17,11 @@ type FlyAndScaleParams = {
 
 export const serializeNonPOJOs = (obj: unknown) => {
 	return structuredClone(obj);
+};
+
+export const generateUserName = (name: string) => {
+	const id = randomBytes(2).toString('hex');
+	return `${name.slice(0, 3)}-${id}`;
 };
 
 export const flyAndScale = (

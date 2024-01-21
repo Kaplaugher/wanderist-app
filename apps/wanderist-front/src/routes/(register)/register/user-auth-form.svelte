@@ -8,36 +8,34 @@
 	export { className as class };
 
 	let isLoading = false;
-	async function onSubmit() {
-		isLoading = true;
-
-		setTimeout(() => {
-			isLoading = false;
-		}, 3000);
-	}
 </script>
 
 <div class={cn('grid gap-6', className)} {...$$restProps}>
-	<form on:submit|preventDefault={onSubmit}>
+	<form action="?/register" method="POST">
 		<div class="grid gap-2">
+			<div class="grid gap-4">
+				<Label for="name">Name</Label>
+				<Input name="name" placeholder="Bob Saget" type="text" disabled={isLoading} />
+			</div>
 			<div class="grid gap-1">
-				<Label class="sr-only" for="email">Email</Label>
+				<Label for="email">Email</Label>
 				<Input
-					id="email"
+					name="email"
 					placeholder="name@example.com"
 					type="email"
-					autocapitalize="none"
 					autocomplete="email"
-					autocorrect="off"
 					disabled={isLoading}
 				/>
 			</div>
-			<Button disabled={isLoading}>
-				{#if isLoading}
-					Loading
-				{/if}
-				Sign In with Email
-			</Button>
+			<div class="grid gap-1">
+				<Label for="password">Password</Label>
+				<Input name="password" type="password" disabled={isLoading} />
+			</div>
+			<div class="grid gap-1">
+				<Label for="passwordConfirm">Confirm Password</Label>
+				<Input name="passwordConfirm" type="password" disabled={isLoading} />
+			</div>
+			<Button disabled={isLoading} type="submit">Register</Button>
 		</div>
 	</form>
 	<div class="relative">
@@ -48,13 +46,5 @@
 			<span class="bg-background text-muted-foreground px-2"> Or continue with </span>
 		</div>
 	</div>
-	<Button variant="outline" type="button" disabled={isLoading}>
-		{#if isLoading}
-			Loading
-		{:else}
-			hi
-		{/if}
-		{' '}
-		GitHub
-	</Button>
+	<Button variant="outline" type="button" disabled={isLoading}>Github</Button>
 </div>
