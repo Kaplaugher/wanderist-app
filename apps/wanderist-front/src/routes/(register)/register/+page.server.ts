@@ -8,10 +8,6 @@ export const actions = {
 
 		const username = generateUserName(body.name.split(' ').join('')).toLowerCase();
 
-		console.log('body: ', body);
-
-		console.log('username: ', username);
-
 		try {
 			await locals.pb.collection('users').create({ username, ...body });
 			await locals.pb.collection('users').requestVerification(body.email);

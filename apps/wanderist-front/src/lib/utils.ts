@@ -21,7 +21,7 @@ export const serializeNonPOJOs = (obj: unknown) => {
 
 export const generateUserName = (name: string) => {
 	const id = randomBytes(2).toString('hex');
-	return `${name.slice(0, 3)}-${id}`;
+	return `${name.slice(0, 5)}-${id}`;
 };
 
 export const flyAndScale = (

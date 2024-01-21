@@ -50,10 +50,11 @@
 								<DropdownMenu.Group>
 									<DropdownMenu.Label>My Account</DropdownMenu.Label>
 									<DropdownMenu.Separator />
-									<DropdownMenu.Item>Profile</DropdownMenu.Item>
-									<DropdownMenu.Item>Billing</DropdownMenu.Item>
-									<DropdownMenu.Item>Team</DropdownMenu.Item>
-									<DropdownMenu.Item>Subscription</DropdownMenu.Item>
+									<DropdownMenu.Item>
+										<form action="/logout" method="POST">
+											<button type="submit">Logout</button>
+										</form>
+									</DropdownMenu.Item>
 								</DropdownMenu.Group>
 							</DropdownMenu.Content>
 						</DropdownMenu.Root>

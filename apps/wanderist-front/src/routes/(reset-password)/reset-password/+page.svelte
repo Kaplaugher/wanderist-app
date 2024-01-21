@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
 	import UserAuthForm from './user-auth-form.svelte';
+	import * as Alert from '$lib/components/ui/alert';
+	import { Rocket } from 'lucide-svelte';
+	export let form: any;
 </script>
 
 <div
 	class="container relative h-full flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0"
 >
-	<Button href="/login" variant="ghost" class="absolute right-4 top-4 md:right-8 md:top-8">
-		Login
+	<Button href="/register" variant="ghost" class="absolute right-4 top-4 md:right-8 md:top-8">
+		Register
 	</Button>
 	<div class="bg-muted relative hidden h-full flex-col p-10 text-white dark:border-r lg:flex">
 		<div
@@ -32,10 +35,19 @@
 	<div class="lg:p-8">
 		<div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
 			<div class="flex flex-col space-y-2 text-center">
-				<h1 class="text-2xl font-semibold tracking-tight">Create an account</h1>
-				<p class="text-muted-foreground text-sm">Enter your email below to create your account</p>
+				<h1 class="text-2xl font-semibold tracking-tight">Reset Password</h1>
+				<p class="text-muted-foreground text-sm">
+					We'll send you an email with a link to reset your password.
+				</p>
 			</div>
-			<UserAuthForm />
+			<UserAuthForm {form} />
+			{#if form?.success}
+				<Alert.Root>
+					<Rocket class="h-4 w-4" />
+					<Alert.Title>Email Sent!</Alert.Title>
+					<Alert.Description>Check your email for a reset link.</Alert.Description>
+				</Alert.Root>
+			{/if}
 			<p class="text-muted-foreground px-8 text-center text-sm">
 				By clicking continue, you agree to our{' '}
 				<a href="/terms" class="hover:text-primary underline underline-offset-4">
