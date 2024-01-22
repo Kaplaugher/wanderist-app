@@ -8,17 +8,14 @@ const schema = z.object({
 });
 
 export const load = async () => {
-	// Server API:
 	const form = await superValidate(schema);
 
-	// Unless you throw, always return { form } in load and form actions.
-	return { form, notVerified: false };
+	return { form };
 };
 
 export const actions = {
 	login: async ({ request, locals }) => {
 		const form = await superValidate(request, schema);
-		console.log('POST', form);
 		if (!form.valid) {
 			return fail(400, { form });
 		}
@@ -27,8 +24,7 @@ export const actions = {
 			await locals.pb.collection('users').authWithPassword(form.data.email, form.data.password);
 			if (!locals.pb?.authStore?.model?.verified) {
 				locals.pb.authStore.clear();
-				console.log('dingles');
-				return fail(400, { form, notVerified: true });
+				return fail(400, { form });
 			}
 		} catch (err) {
 			console.log('Error: ', err);
