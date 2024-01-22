@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
 	import UserAuthForm from './user-auth-form.svelte';
-	export let form: any;
+
+	export let data;
 </script>
 
 <div
@@ -35,7 +36,8 @@
 			<div class="flex flex-col space-y-2 text-center">
 				<h1 class="text-2xl font-semibold tracking-tight">Login</h1>
 			</div>
-			<UserAuthForm {form} />
+
+			<UserAuthForm {data} />
 			<p class="text-muted-foreground px-8 text-center text-sm">
 				By clicking continue, you agree to our{' '}
 				<a href="/terms" class="hover:text-primary underline underline-offset-4">
