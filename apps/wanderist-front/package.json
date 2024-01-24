@@ -40,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"bits-ui": "^0.15.1",
 		"clsx": "^2.1.0",
 		"formsnap": "^0.4.3",
