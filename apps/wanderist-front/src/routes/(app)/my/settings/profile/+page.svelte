@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Separator } from '$lib/components/ui/select';
+	import ProfileForm from '../(components)/profile-form.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -9,4 +11,6 @@
 		<h3 class="text-lg font-medium">Profile</h3>
 		<p class="text-muted-foreground text-sm">This is how others will see you on the site.</p>
 	</div>
+	<Separator />
+	<ProfileForm data={data.form} />
 </div>
