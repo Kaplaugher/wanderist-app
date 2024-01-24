@@ -3,6 +3,7 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import '../../app.pcss';
+	import { getImageURL } from '$lib/utils';
 	export let data;
 </script>
 
@@ -42,7 +43,12 @@
 						<DropdownMenu.Root>
 							<DropdownMenu.Trigger>
 								<Avatar.Root>
-									<Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
+									<Avatar.Image
+										src={data.user?.avatar
+											? getImageURL(data.user?.collectionId, data.user?.id, data.user?.avatar)
+											: `https://ui-avatars.com/api/?name=${data.user?.name}`}
+										alt="@shadcn"
+									/>
 									<Avatar.Fallback>CN</Avatar.Fallback>
 								</Avatar.Root>
 							</DropdownMenu.Trigger>

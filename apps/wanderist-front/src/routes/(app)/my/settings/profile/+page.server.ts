@@ -1,25 +1,28 @@
-import type { PageServerLoad } from './$types';
-import { superValidate } from 'sveltekit-superforms/server';
+import { error } from '@sveltejs/kit';
 
-import { fail, type Actions } from '@sveltejs/kit';
-import { profileFormSchema } from '../(components)/profile-form.svelte';
+export const actions = {
+	updateProfile: async ({ request, locals }) => {
+		const data = await request.formData();
+		const userAvatar = data.get('avatar');
 
-export const load: PageServerLoad = async () => {
-	return {
-		form: await superValidate(profileFormSchema)
-	};
-};
-
-export const actions: Actions = {
-	default: async (event) => {
-		const form = await superValidate(event, profileFormSchema);
-		if (!form.valid) {
-			return fail(400, {
-				form
-			});
+		if (userAvatar?.size === 0) {
+			data.delete('avatar');
 		}
+
+		try {
+			const { name, avatar } = await locals.pb.collection('users').update(locals?.user?.id, data);
+			console.log('Updated user: ', name, avatar);
+
+			locals.user.name = name;
+			locals.user.avatar = avatar;
+		} catch (err) {
+			console.log('Error: ', err);
+
+			throw error(400, 'Something went wrong updating your profile');
+		}
+
 		return {
-			form
+			success: true
 		};
 	}
 };

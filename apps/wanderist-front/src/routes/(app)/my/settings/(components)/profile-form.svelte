@@ -1,12 +1,6 @@
 <script lang="ts" context="module">
 	import { z } from 'zod';
 	export const profileFormSchema = z.object({
-		avatar: z
-			.string()
-			.url({ message: 'Please enter a valid URL.' })
-			.default(
-				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-			),
 		username: z
 			.string()
 			.min(2, 'Username must be at least 2 characters.')
@@ -23,7 +17,8 @@
 <script lang="ts">
 	import type { SuperValidated } from 'sveltekit-superforms';
 	import * as Form from '$lib/components/ui/form';
-	import * as Avatar from '$lib/components/ui/avatar';
+	import { Input } from '$lib/components/ui/select';
+	import { Label } from '$lib/components/ui/label';
 
 	export let data: SuperValidated<ProfileFormSchema>;
 </script>
@@ -37,19 +32,9 @@
 	debug={true}
 >
 	<Form.Item>
-		<Form.Field {config} name="avatar">
-			<img class="inline-block h-24 w-24 rounded-full" src={data.data.avatar} alt="" />
-
-			<Form.Input type="file" />
-			<Form.Description>Public Avatar</Form.Description>
-			<Form.Validation />
-		</Form.Field>
-	</Form.Item>
-
-	<Form.Item>
 		<Form.Field {config} name="username">
 			<Form.Label>Username</Form.Label>
-			<Form.Input placeholder="@shadcn" />
+			<Form.Input placeholder="shadcn" />
 			<Form.Description>
 				This is your public display name. It can be your real name or a pseudonym. You can only
 				change this once every 30 days.
@@ -74,5 +59,5 @@
 			<Form.Validation />
 		</Form.Field>
 	</Form.Item>
-	<Form.Button>Update profile</Form.Button>
+	<Form.Button on:click={() => console.log(data.data)}>Update profile</Form.Button>
 </Form.Root>
