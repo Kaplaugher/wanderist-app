@@ -2,8 +2,6 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Button } from '$lib/components/ui/button';
 	import { Label } from '$lib/components/ui/label';
-	import { AlertCircle } from 'lucide-svelte';
-	import * as Alert from '$lib/components/ui/alert';
 	import { cn } from '$lib/utils';
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
@@ -49,12 +47,4 @@
 			</span>
 		</div>
 	</form>
-	<div>{data.notVerified}</div>
-	{#if data?.notVerified}
-		<Alert.Root variant="destructive">
-			<AlertCircle class="h-4 w-4" />
-			<Alert.Title>Error</Alert.Title>
-			<Alert.Description>You must verify your email before logging in.</Alert.Description>
-		</Alert.Root>
-	{/if}
 </div>
