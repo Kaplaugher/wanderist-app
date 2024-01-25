@@ -4,6 +4,6 @@
 	export let data: LayoutData;
 </script>
 
-<div class="h-full">
+<div class="h-screen">
 	<slot><!-- optional fallback --></slot>
 </div>

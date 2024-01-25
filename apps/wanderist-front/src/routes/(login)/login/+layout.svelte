@@ -2,6 +2,6 @@
 	export let data;
 </script>
 
-<div class="h-full">
+<div class="h-screen">
 	<slot><!-- optional fallback --></slot>
 </div>
