@@ -2,6 +2,6 @@
 	import '../app.pcss';
 </script>
 
-<div class="h-full">
+<div class="">
 	<slot><!-- optional fallback --></slot>
 </div>
