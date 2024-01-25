@@ -29,41 +29,44 @@
 		</Dialog.Header>
 		<div class={cn('grid gap-6', className)} {...$$restProps}>
 			<SuperDebug data={$form} />
-			<form action="?/create" method="POST" use:enhance>
+			<form action="?/create" method="POST" enctype="multipart/form-data" use:enhance>
 				<div class="grid gap-2">
 					<div class="grid gap-1">
-						<Label for="email">Title</Label>
+						<Label for="entry_title">Title</Label>
 						<Input
-							name="entryTitle"
+							name="entry_title"
 							placeholder="Title"
 							type="text"
-							bind:value={$form.entryTitle}
+							bind:value={$form.entry_title}
 						/>
-						{#if $errors.entryTitle}
-							<small class="text-red-400">{$errors.entryTitle}</small>
+						{#if $errors.entry_title}
+							<small class="text-red-400">{$errors.entry_title}</small>
 						{/if}
 					</div>
 					<div class="grid gap-1">
-						<Label for="entryDescription">Description</Label>
-						<Textarea name="password" bind:value={$form.entryDescription} />
-						{#if $errors.entryDescription}
-							<small class="text-red-400">{$errors.entryDescription}</small>
+						<Label for="description">Description</Label>
+						<Textarea name="description" bind:value={$form.description} />
+						{#if $errors.description}
+							<small class="text-red-400">{$errors.description}</small>
 						{/if}
 					</div>
 					<div class="grid gap-1">
-						<Label for="email">Location ID</Label>
-						<Input name="locationId" type="number" bind:value={$form.locationId} />
-						{#if $errors.entryTitle}
-							<small class="text-red-400">{$errors.entryTitle}</small>
+						<Label for="location_id">Location ID</Label>
+						<Input name="location_id" type="number" bind:value={$form.location_id} />
+						{#if $errors.location_id}
+							<small class="text-red-400">{$errors.location_id}</small>
 						{/if}
 					</div>
-
-					<Button type="submit">Login</Button>
+					<div class="grid gap-1">
+						<Label for="main_image">Image</Label>
+						<Input name="main_image" type="file" bind:value={$form.main_image} />
+						{#if $errors.main_image}
+							<small class="text-red-400">{$errors.main_image}</small>
+						{/if}
+					</div>
 				</div>
+				<Button type="submit">Save</Button>
 			</form>
 		</div>
-		<Dialog.Footer>
-			<Button type="submit">Save changes</Button>
-		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>
