@@ -11,14 +11,13 @@ const schema = z.object({
 });
 
 export const load = async ({ locals, params }) => {
-	const form = await superValidate(schema);
+	const entry = serializeNonPOJOs(await locals.pb.collection('entries').getOne(params.entryId));
+	const form = await superValidate(entry, schema);
 	if (!locals.pb.authStore.isValid) {
 		throw error(401, 'Unauthorized');
 	}
 
 	try {
-		const entry = serializeNonPOJOs(await locals.pb.collection('entries').getOne(params.entryId));
-
 		if (locals.user.id === entry.user) {
 			return {
 				entry,
@@ -40,12 +39,8 @@ export const actions = {
 
 		if (!form.valid) return fail(400, { form });
 
-		const file = formData.get('main_image');
+		const file = form.data.main_image || formData.get('main_image');
 		const payload = { ...form.data, user: locals.user.id, main_image: file };
-		if (file instanceof File) {
-			// Do something with the file.
-			console.log('File: ', file);
-		}
 
 		try {
 			await locals.pb.collection('entries').update(params.entryId, payload);
@@ -54,7 +49,7 @@ export const actions = {
 			throw error(err.status, err.message);
 		}
 
-		throw redirect(303, `/my/journal/${params.entryId}`);
+		throw redirect(303, `/journal/${params.entryId}`);
 	},
 	deleteThumbnail: async ({ locals, params }) => {
 		try {

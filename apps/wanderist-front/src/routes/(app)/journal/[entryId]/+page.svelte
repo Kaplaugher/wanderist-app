@@ -4,7 +4,7 @@
 	export let data;
 </script>
 
-<section class="mt-4 flex h-full flex-col overflow-auto">
+<section class="mt-4 flex h-full flex-col gap-4 overflow-auto">
 	<div class="bg-white py-4">
 		<div class="flex justify-between">
 			<div class="mx-auto max-w-2xl lg:mx-0">
@@ -26,11 +26,11 @@
 			class="h-full w-full rounded-lg object-cover shadow-2xl"
 			alt="hero"
 			src={data.entry?.main_image
-				? getImageURL(data.entry.collectionId, data.entry.id, data.entry.main_image, '80x80')
+				? getImageURL(data.entry.collectionId, data.entry.id, data.entry.main_image)
 				: `https://via.placeholder.com/80/4506CB/FFFFFF/?text=${data.entry.entry_title}`}
 		/>
 	</div>
-	<ul role="list" class="divide-y divide-gray-100">
+	<ul role="list" class=" divide-y divide-gray-100">
 		<li class="relative flex justify-between gap-x-6 px-4 py-8 hover:bg-gray-50 sm:px-6 lg:px-8">
 			<div class="flex min-w-0 gap-x-4">
 				<img
