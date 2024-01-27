@@ -28,10 +28,7 @@ export const actions = {
 		const file = formData.get('images');
 		const payload = { ...form.data, user: locals.user.id, entry_id: params.entryId, images: file };
 		console.log('Payload: ', payload);
-		if (file instanceof File) {
-			// Do something with the file.
-			console.log('File: ', file);
-		}
+		console.log('File: ', file);
 
 		try {
 			await locals.pb.collection('places').create(payload);
