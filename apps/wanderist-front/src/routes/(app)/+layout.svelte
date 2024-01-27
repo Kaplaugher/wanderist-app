@@ -20,6 +20,11 @@
 						<a
 							href="/"
 							class="inline-flex items-center border-b-2 border-blue-600 px-1 pt-1 text-sm font-medium text-gray-900"
+							aria-current="page">Home</a
+						>
+						<a
+							href="/explore"
+							class="inline-flex items-center border-b-2 border-blue-600 px-1 pt-1 text-sm font-medium text-gray-900"
 							aria-current="page">Explore</a
 						>
 					</div>
