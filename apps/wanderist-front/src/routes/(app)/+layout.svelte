@@ -47,6 +47,16 @@
 							<DropdownMenu.Content>
 								<DropdownMenu.Group>
 									<DropdownMenu.Label>My Account</DropdownMenu.Label>
+									<DropdownMenu.Item>
+										<button>
+											<a href="/my/settings/account">Settings</a>
+										</button>
+									</DropdownMenu.Item>
+									<DropdownMenu.Item>
+										<button>
+											<a href="/my/journal">Journal</a>
+										</button>
+									</DropdownMenu.Item>
 									<DropdownMenu.Separator />
 									<DropdownMenu.Item>
 										<form action="/logout" method="POST">
