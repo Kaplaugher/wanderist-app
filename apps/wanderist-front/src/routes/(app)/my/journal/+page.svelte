@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
 	import { getImageURL } from '$lib/utils';
-	import CreateEntryForm from './create/create-entry-form.svelte';
 
 	export let data: any;
-	console.log(data.entries);
 </script>
 
 <div>
