@@ -5,7 +5,7 @@
 	import { superForm } from 'sveltekit-superforms/client';
 	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 	import Textarea from '$lib/components/ui/textarea/textarea.svelte';
-	import { Button, buttonVariants } from '$lib/components/ui/button';
+	import { Button } from '$lib/components/ui/button';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };

@@ -128,16 +128,15 @@
 					class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8"
 				>
 					<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-						<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our people</h2>
+						<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+							Create Your Travel Journal
+						</h2>
 						<p class="mt-6 text-xl leading-8 text-gray-600">
-							Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta
-							rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias
-							quas.
+							Log your travels and share your experiences with the world.
 						</p>
 						<p class="mt-6 text-base leading-7 text-gray-600">
-							Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
-							commodo. Elit sunt amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque
-							reprehenderit.
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. A alias modi illo cum libero
+							quis!
 						</p>
 						<div class="mt-10 flex gap-4">
 							<a
