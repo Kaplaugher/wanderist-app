@@ -1,5 +1,5 @@
 import { serializeNonPOJOs } from '$lib/utils';
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 export const load = async ({ locals, params }) => {
 	const getEntry = async (entryId: string) => {
@@ -43,8 +43,6 @@ export const actions = {
 			console.log('Error: ', err);
 			throw error(err.status, err.message);
 		}
-		return {
-			success: true
-		};
+		throw redirect(303, `/my/journal`);
 	}
 };

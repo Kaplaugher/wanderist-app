@@ -6,11 +6,13 @@
 	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 	import Textarea from '$lib/components/ui/textarea/textarea.svelte';
 	import { Button } from '$lib/components/ui/button';
-
+	import * as Select from '$lib/components/ui/select';
 	let className: string | undefined | null = undefined;
 	export { className as class };
 
 	export let data;
+
+	const categories = ['Food & Drink', 'Fun', 'Sights'];
 
 	// Client API:
 	const { form, errors, enhance } = superForm(data.form);
@@ -34,9 +36,14 @@
 					<small class="text-red-400">{$errors.description}</small>
 				{/if}
 			</div>
-			<div class="grid gap-1">
-				<Label for="category">Category</Label>
-				<Textarea name="category" bind:value={$form.category} />
+			<div class="grid max-w-sm gap-1">
+				<Label for="description">Categories</Label>
+				{#each categories as cat}
+					<label>
+						<input type="checkbox" bind:group={$form.category} name="category" value={cat} />
+						{cat}
+					</label>
+				{/each}
 				{#if $errors.category}
 					<small class="text-red-400">{$errors.category}</small>
 				{/if}
