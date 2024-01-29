@@ -1,4 +1,5 @@
 <script>
+	import Badge from '$lib/components/ui/badge/badge.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { getImageURL } from '$lib/utils';
 	export let data;
@@ -106,8 +107,10 @@
 				</div>
 			</div>
 			<div class="flex shrink-0 items-center gap-x-4">
-				<div class="hidden sm:flex sm:flex-col sm:items-end">
-					<p class="text-sm leading-6 text-gray-900">Category</p>
+				<div class="hidden gap-2 sm:flex sm:flex-col sm:items-end">
+					{#each place.category as cat}
+						<Badge>{cat}</Badge>
+					{/each}
 					<p class="mt-1 text-xs leading-5 text-gray-500">
 						{place.created}
 					</p>
