@@ -3,8 +3,8 @@ import { superValidate } from 'sveltekit-superforms/server';
 import { error, fail, redirect } from '@sveltejs/kit';
 
 const schema = z.object({
-	entry_title: z.string().min(2).max(50),
-	description: z.string().min(8).max(100),
+	entry_title: z.string().min(2).max(100),
+	description: z.string().min(8).max(1000),
 	location_id: z.number(),
 	main_image: z.unknown()
 });

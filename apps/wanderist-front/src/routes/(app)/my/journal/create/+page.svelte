@@ -5,3 +5,4 @@
 </script>
 
 <div><CreateEntryForm {data} /></div>
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum alias id, exercitationem enim esse sint!

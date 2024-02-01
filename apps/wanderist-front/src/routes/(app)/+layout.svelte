@@ -14,17 +14,16 @@
 			<div class="flex h-16 justify-between">
 				<div class="flex">
 					<div class="flex flex-shrink-0 items-center">
-						<img class="block h-12 w-auto" src={Logo} alt="Your Company" />
+						<a
+							href="/"
+							class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
+							aria-current="page"><img class="block h-12 w-auto" src={Logo} alt="Your Company" /></a
+						>
 					</div>
 					<div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
 						<a
-							href="/"
-							class="inline-flex items-center border-b-2 border-blue-600 px-1 pt-1 text-sm font-medium text-gray-900"
-							aria-current="page">Home</a
-						>
-						<a
 							href="/explore"
-							class="inline-flex items-center border-b-2 border-blue-600 px-1 pt-1 text-sm font-medium text-gray-900"
+							class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
 							aria-current="page">Explore</a
 						>
 					</div>

@@ -12,8 +12,8 @@ export const load = async ({ locals }) => {
 };
 
 const schema = z.object({
-	place_name: z.string().min(2).max(50),
-	description: z.string().min(8).max(300),
+	place_name: z.string().min(2).max(100),
+	description: z.string().min(8).max(1000),
 	category: z.string().array().min(1, 'Please select at least one category'),
 	images: z.unknown().array()
 });
