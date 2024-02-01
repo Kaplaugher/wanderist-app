@@ -2,6 +2,7 @@
 	import Badge from '$lib/components/ui/badge/badge.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { getImageURL } from '$lib/utils';
+	import { format } from 'date-fns';
 	export let data;
 </script>
 
@@ -112,7 +113,7 @@
 						<Badge>{cat}</Badge>
 					{/each}
 					<p class="mt-1 text-xs leading-5 text-gray-500">
-						{place.created}
+						{format(new Date(place.created), 'MM/dd/yyyy')}
 					</p>
 				</div>
 				<svg

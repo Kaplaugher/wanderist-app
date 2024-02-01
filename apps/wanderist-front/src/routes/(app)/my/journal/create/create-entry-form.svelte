@@ -17,9 +17,8 @@
 	const { form, errors, enhance } = superForm(data.form);
 </script>
 
-<div class={cn('grid gap-6', className)} {...$$restProps}>
-	<SuperDebug data={$form} />
-	<form action="?/create" method="POST" enctype="multipart/form-data" use:enhance>
+<div class={cn('flex  h-full justify-center py-4', className)} {...$$restProps}>
+	<form action="?/create" method="POST" enctype="multipart/form-data" use:enhance class="max-w-xl">
 		<div class="grid gap-2">
 			<div class="grid gap-1">
 				<Label for="entry_title">Title</Label>
@@ -49,7 +48,7 @@
 					<small class="text-red-400">{$errors.main_image}</small>
 				{/if}
 			</div>
+			<Button type="submit">Save</Button>
 		</div>
-		<Button type="submit">Save</Button>
 	</form>
 </div>

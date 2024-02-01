@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
 	import { getImageURL } from '$lib/utils';
+	import { format, compareAsc } from 'date-fns';
 
 	export let data: any;
 </script>
@@ -43,7 +44,7 @@
 					<div
 						class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"
 					>
-						<time datetime="2020-03-16" class="mr-8">{entry.created}</time>
+						<time class="mr-8">{format(new Date(entry.created), 'MM/dd/yyyy')}</time>
 						<div class="-ml-4 flex items-center gap-x-4">
 							<svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
 								<circle cx="1" cy="1" r="1" />

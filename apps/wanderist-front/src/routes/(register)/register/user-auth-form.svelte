@@ -17,7 +17,6 @@
 </script>
 
 <div class={cn('grid gap-6', className)} {...$$restProps}>
-	<SuperDebug data={$form} />
 	<form action="?/register" method="POST" use:enhance>
 		<div class="grid gap-2">
 			<div class="grid gap-4">

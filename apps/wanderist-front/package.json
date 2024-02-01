@@ -43,6 +43,7 @@
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"bits-ui": "^0.15.1",
 		"clsx": "^2.1.0",
+		"date-fns": "^3.3.1",
 		"embla-carousel-svelte": "8.0.0-rc21",
 		"formsnap": "^0.4.3",
 		"lucide-svelte": "^0.312.0",

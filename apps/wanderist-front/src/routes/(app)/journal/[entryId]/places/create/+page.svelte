@@ -19,7 +19,6 @@
 </script>
 
 <div class={cn('grid gap-6', className)} {...$$restProps}>
-	<SuperDebug data={$form} />
 	<form action="?/create" method="POST" enctype="multipart/form-data" use:enhance>
 		<div class="grid gap-2">
 			<div class="grid gap-1">
@@ -57,7 +56,7 @@
 					{/if}
 				</div>
 			</div>
-			<Button type="submit">Save</Button>
+			<Button class="mt-4" type="submit">Save</Button>
 		</div>
 	</form>
 </div>
