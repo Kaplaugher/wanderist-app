@@ -1,4 +1,4 @@
-# Wanderist
+# Wanderist - POC Repo
 
 Wanderist is an innovative app designed for travelers who wish to capture and organize their travel experiences in a unique and personal way. With Wanderist, users can create beautifully curated travel journals, add places they've visited, and document their journey with notes, photos, and maps.
 
